@@ -191,7 +191,7 @@ slm_batch_repl_cb(void *req, void *rep, void *scratch, int rc)
 	}
 
 	if (mds_repl_bmap_apply(b, tract, retifset, bsr->bsr_off)) {
-		OPSTAT_INCR("repl-revert");
+		OPSTAT_INCR("repl-apply");
 		mds_bmap_write_logrepls(b);
 	} else {
 		if (!rc) {
@@ -303,7 +303,7 @@ slm_upsch_tryrepl(struct bmap *b, int off, struct sl_resm *src_resm,
  	 */
  	if (rc == BREPLST_REPL_SCHED) {
 		OPSTAT_INCR("repl-already-sched");
-		return (0);
+		return (1);
 	}
 	if (rc == BREPLST_VALID)
 		DEBUG_BMAP(PLL_FATAL, b,
