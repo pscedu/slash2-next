@@ -352,6 +352,7 @@ dump_fcmh_flags(int flags)
 	if (flags)
 		printf(" unknown: %x", flags);
 	printf("\n");
+	fflush(stdout);
 }
 #endif
 

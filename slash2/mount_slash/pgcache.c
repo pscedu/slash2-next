@@ -749,6 +749,7 @@ dump_bmpce_flags(uint32_t flags)
 	if (flags)
 		printf(" unknown: %#x", flags);
 	printf("\n");
+	fflush(stdout);
 }
 
 void
@@ -770,5 +771,6 @@ dump_biorq_flags(uint32_t flags)
 	if (flags)
 		printf(" unknown: %#x", flags);
 	printf("\n");
+	fflush(stdout);
 }
 #endif
