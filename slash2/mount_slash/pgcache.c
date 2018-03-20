@@ -591,6 +591,7 @@ bmpc_biorqs_destroy_locked(struct bmap *b)
 	BMAP_ULOCK(b);
 
 	DYNARRAY_FOREACH(r, i, &a) {
+		/* p ((struct pfl_opstat *)pfl_opstats.pda_items[68]).opst_name */
 		OPSTAT_INCR("msl.biorq-destroy-batch");
 		msl_biorq_release(r);
 	}
